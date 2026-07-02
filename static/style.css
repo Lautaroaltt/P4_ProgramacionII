@@ -175,6 +175,23 @@ button:hover {
     overflow: hidden;
 }
 
+.info-card {
+    background-color: var(--panel-2);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin: 16px 0 22px;
+}
+
+.info-card p {
+    margin: 0 0 12px;
+    color: var(--muted);
+}
+
+.info-card p:last-child {
+    margin-bottom: 0;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
