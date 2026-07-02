@@ -47,14 +47,18 @@ nav {
 }
 
 .nav-links a {
-    color: #dddddd;
+    color: #e7edf7;
     text-decoration: none;
     margin-right: 18px;
     font-weight: bold;
+    padding: 8px 10px;
+    border-radius: 8px;
+    transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .nav-links a:hover {
-    color: var(--accent);
+    color: white;
+    background-color: rgba(47, 140, 255, 0.14);
 }
 
 .container {
