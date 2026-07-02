@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}Listado de estudiantes{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+    <p class="subtitle">Vista principal del sistema</p>
+</section>
+
+<div class="top-row">
+    <div class="actions">
+        <a class="btn" href="{{ url_for('agregar') }}">Agregar estudiante</a>
+        <a class="btn secondary" href="{{ url_for('index') }}">Ver todos</a>
+    </div>
+
+    <form class="search" action="{{ url_for('buscar') }}" method="POST">
+        <input type="text" name="buscar" placeholder="Buscar por DNI, apellido o carrera" value="{{ busqueda or '' }}">
+        <button type="submit" class="btn search-btn">Buscar</button>
+    </form>
+</div>
+
+<div class="ordenamiento">
+    <a class="btn secondary small" href="/?orden=apellido">Ordenar por apellido</a>
+    <a class="btn secondary small" href="/?orden=carrera">Ordenar por carrera</a>
+    <a class="btn secondary small" href="/?orden=fecha">Ordenar por fecha</a>
+</div>
+
+<div class="table-card">
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>DNI</th>
+            <th>Apellido</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Carrera</th>
+            <th>Teléfono</th>
+            <th>Edad</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for estudiante in estudiantes %}
+        <tr>
+            <td>{{ estudiante.id }}</td>
+            <td>{{ estudiante.dni }}</td>
+            <td>{{ estudiante.apellido }}</td>
+            <td>{{ estudiante.nombre }}</td>
+            <td>{{ estudiante.email }}</td>
+            <td>{{ estudiante.carrera }}</td>
+            <td>{{ estudiante.telefono or '-' }}</td>
+            <td>{{ estudiante.edad or '-' }}</td>
+            <td>
+                <a class="link edit" href="{{ url_for('editar', id=estudiante.id) }}">Editar</a>
+                <a class="link delete" href="{{ url_for('eliminar', id=estudiante.id) }}" onclick="return confirm('¿Seguro que desea eliminar este estudiante?')">Eliminar</a>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="9" class="empty">No hay estudiantes cargados.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+{% endblock %}

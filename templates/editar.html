@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar estudiante{% endblock %}
+
+{% block content %}
+
+<h1>Editar estudiante</h1>
+<p class="subtitle">Modificar los datos del estudiante seleccionado.</p>
+
+<form class="form-card" method="POST">
+    <label>DNI *</label>
+    <input type="text" name="dni" value="{{ estudiante.dni }}" placeholder="Ej: 40123456" required>
+
+    <label>Apellido *</label>
+    <input type="text" name="apellido" value="{{ estudiante.apellido }}" placeholder="Ej: Perez" required>
+
+    <label>Nombre *</label>
+    <input type="text" name="nombre" value="{{ estudiante.nombre }}" placeholder="Ej: Juan" required>
+
+    <label>Email</label>
+    <input type="email" name="email" value="{{ estudiante.email }}" placeholder="ejemplo@mail.com">
+
+    <label>Carrera</label>
+    <input type="text" name="carrera" value="{{ estudiante.carrera }}" placeholder="Ej: Analisis de Sistemas">
+
+    <label>Teléfono</label>
+    <input type="text" name="telefono" value="{{ estudiante.telefono or '' }}" placeholder="Ej: 2611234567">
+
+    <label>Edad</label>
+    <input type="number" name="edad" value="{{ estudiante.edad or '' }}" placeholder="Ej: 20">
+
+    <div class="form-actions">
+        <button type="submit">Actualizar</button>
+        <a class="btn secondary" href="{{ url_for('index') }}">Cancelar</a>
+    </div>
+</form>
+
+{% endblock %}

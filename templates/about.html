@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Acerca del Sistema{% endblock %}
+
+{% block content %}
+
+<h1>Acerca del Sistema</h1>
+
+<p>
+Sistema de Gestión de Estudiantes desarrollado para la materia Programación II, tomando como base un TP anterior y mejorando su presentación con HTML y CSS.
+</p>
+
+<p>
+Este sistema permite registrar, modificar, buscar y eliminar estudiantes almacenados en una base de datos PostgreSQL.
+</p>
+
+<h3>Tecnologías utilizadas</h3>
+
+<ul>
+    <li>Python</li>
+    <li>Flask</li>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>Git</li>
+</ul>
+
+<h3>Alumno</h3>
+
+<p>Lautaro Altamirano</p>
+
+<div class="actions">
+    <a href="{{ url_for('index') }}" class="btn">Volver</a>
+</div>
+
+{% endblock %}

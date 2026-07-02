@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}Agregar estudiante{% endblock %}
+
+{% block content %}
+
+<h1>Agregar estudiante</h1>
+<p class="subtitle">Cargar los datos del nuevo estudiante.</p>
+
+<form class="form-card" method="POST">
+    <label>DNI *</label>
+    <input type="text" name="dni" placeholder="Ej: 40123456" required>
+
+    <label>Apellido *</label>
+    <input type="text" name="apellido" placeholder="Ej: Perez" required>
+
+    <label>Nombre *</label>
+    <input type="text" name="nombre" placeholder="Ej: Juan" required>
+
+    <label>Email</label>
+    <input type="email" name="email" placeholder="ejemplo@mail.com">
+
+    <label>Carrera</label>
+    <input type="text" name="carrera" placeholder="Ej: Analisis de Sistemas">
+
+    <label>Teléfono</label>
+    <input type="text" name="telefono" placeholder="Ej: 2611234567">
+
+    <label>Edad</label>
+    <input type="number" name="edad" placeholder="Ej: 20">
+
+    <div class="form-actions">
+        <button type="submit">Guardar</button>
+        <a class="btn secondary" href="{{ url_for('index') }}">Volver</a>
+    </div>
+</form>
+
+{% endblock %}

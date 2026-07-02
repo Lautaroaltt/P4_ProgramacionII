@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sistema de Gestión de Estudiantes{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <nav>
+        <div class="nav-title">
+            <span class="nav-badge">TP Integrador</span>
+            Sistema de Gestión de Estudiantes
+        </div>
+
+        <div class="nav-links">
+            <a href="{{ url_for('index') }}">Inicio</a>
+            <a href="{{ url_for('agregar') }}">Agregar estudiante</a>
+            <a href="{{ url_for('about') }}">Acerca del sistema</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="hero">
+            <p class="hero-kicker">Programación II</p>
+            <h1>Sistema de Gestión de Estudiantes</h1>
+            <p class="hero-text">Aplicación web simple hecha con Flask para registrar, editar, buscar y eliminar estudiantes.</p>
+        </section>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        Sistema de Gestión de Estudiantes - Programación II - 2025
+    </footer>
+
+</body>
+</html>
